@@ -1,0 +1,70 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="es">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bootstrap demo</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+	crossorigin="anonymous">
+
+</head>
+
+<body>
+	<h1 style="text-align: center">Search by fullname</h1>
+	<div class="container-fluid">
+		<form th:action="@{./searchCustomerByFullName}"
+			th:object="${customer}">
+			<div class="mb-3">
+				<label for="customerName" class="form-label">Customer name</label> <input
+					required="required" type="text" class="form-control"
+					id="customerName" name="customerName">
+			</div>
+			<div class="mb-3">
+				<label for="customerLastName" class="form-label">Customer
+					Last Name</label> <input required="required" type="text"
+					class="form-control" id="customerLastName" name="customerLastName">
+			</div>
+			<button type="submit" class="btn btn-info">Search by
+				fullname</button>
+		</form>
+
+		<br>
+		<div>
+			<form class="form mt-3" th:action="@{./newCustomer}" method="POST">
+				<button type="submit" class="btn btn-primary">Register new
+					customer</button>
+			</form>
+			<form class="form mt-3" th:action="@{./showCustomers}" method="POST">
+				<button type="submit" class="btn btn-primary">Show all
+					customers</button>
+			</form>
+			<form class="form mt-3" th:action="@{./toSearchCustomerByName}"
+				method="POST">
+				<button type="submit" class="btn btn-primary">Search by
+					name</button>
+			</form>
+			<form class="form mt-3" th:action="@{./toSearchCustomerByFullName}"
+				method="POST">
+				<button type="submit" class="btn btn-primary">Search by
+					fullname</button>
+			</form>
+			<form class="form mt-3"
+				th:action="@{./toSearchCustomerByFullNameAndDocument}" method="POST">
+				<button type="submit" class="btn btn-primary">Search by
+					fullname and document</button>
+			</form>
+		</div>
+	</div>
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>
